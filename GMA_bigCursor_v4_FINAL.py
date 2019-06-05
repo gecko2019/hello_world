@@ -152,7 +152,7 @@ fields created and calculated. \nTotal of {} polygons with {} zero volume polygo
         print("{} row(s) processed where row[fields.index('SUM_z_TOTAL_VOLUME')] > 0".format(rowCount))
     print("FC: {} has {:.1f} m3 timber volume on {:.1f} ha, thus timber density is {:.1f} m3/ha, based on {} polygons with volume.".format(inputFC, total_vol, total_ha, total_m3_per_ha, count - len(zeroVolumes)))
 
-# FUNCTION CALL
+# FUNCTION CALL HERE
 ##inputFC is an intersect between VRI and THLB in your area of interest, plus any other layers you want to
 ## intersect (for better spatial extents)
 ## ex. W:\FOR\RSI\DKL\General_User_Data\gamos\Layer_files_and_MXDs\ArcGIS_Layer_Files\Gregs_layer_files.gdb\sample_VRI_THLB_intersect_Ladybird 
