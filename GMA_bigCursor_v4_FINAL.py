@@ -1,13 +1,15 @@
 
-# GMA_bigCursor_v1.py
-# gamos 01/05/2019 (DD/MM/YY format)
+# GMA_bigCursor_v4.py
+# gamos 05/06/2019 (DD/MM/YY format)
+
+# A function to calculate timber volumes within a VRI, THLB and (whatever else) intersect.
 
 import arcpy, sys, os, time, datetime
 from arcpy import env
 arcpy.env.overwriteOutput = True
 arcpy.ClearWorkspaceCache_management()
 
-wrkSpc_T = r"T:\greg.gdb"
+wrkSpc_T = r"T:\temp.gdb"
 arcpy.env.workspace = wrkSpc_T
 
 #################################################################################
@@ -150,9 +152,11 @@ fields created and calculated. \nTotal of {} polygons with {} zero volume polygo
         print("{} row(s) processed where row[fields.index('SUM_z_TOTAL_VOLUME')] > 0".format(rowCount))
     print("FC: {} has {:.1f} m3 timber volume on {:.1f} ha, thus timber density is {:.1f} m3/ha, based on {} polygons with volume.".format(inputFC, total_vol, total_ha, total_m3_per_ha, count - len(zeroVolumes)))
 
-# TEST STUFF
-inputFC = r"vri_THLB_park_int_2"
-##inputFC = r"T:\greg.gdb\vri_THLB_park_int_2"
+# FUNCTION CALL
+##inputFC is an intersect between VRI and THLB in your area of interest, plus any other layers you want to
+## intersect (for better spatial extents)
+## ex. W:\FOR\RSI\DKL\General_User_Data\gamos\Layer_files_and_MXDs\ArcGIS_Layer_Files\Gregs_layer_files.gdb\sample_VRI_THLB_intersect_Ladybird 
 bigCursor (inputFC, "THLB")                                     # FUNCTION_CALL
+# bigCursor (inputFC, THLB_type):
 
 
